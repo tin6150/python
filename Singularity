@@ -1,6 +1,4 @@
 
-### https://singularity-hub.org/collections/tbd
-
 
 # singularity container definition for
 # python (3.8 in this branch)
@@ -8,6 +6,9 @@
 # cuz somehow
 # singularity pull py38.sif docker://python:3.8-alpine
 # generated an error 
+#
+# https://singularity-hub.org/collections/3767
+
 
 # container size is about 35 MB
 
