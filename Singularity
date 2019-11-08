@@ -3,7 +3,7 @@
 
 
 # singularity container definition for
-# python (3.8 for now)
+# python (3.8 in this branch)
 # essentially a straight conversion from docker
 # cuz somehow
 # singularity pull py38.sif docker://python:3.8-alpine
