@@ -1,27 +1,19 @@
-name: docker-publish
+name: Docker
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
 # documentation.
 
-## 2024.0312 commented out scheduled run, only need to run when changes get pushed.
-
-## 2024.0313 going back to version from github web template, to use the newer fn constructs.
-
 on:
   #schedule:
-  #  - cron: '38 7 * * *'
+  #  - cron: '42 19 * * *'
   push:
-    ##branches: [ main ]
-    branches: [ master, main, tin6150-dockerizing, 3.8* ]
+    branches: [ "master", "main" ]
     # Publish semver tags as releases.
-    tags: [ 'v*.*.*', 'jgrg*' ]
+    tags: [ 'v*.*.*' ]
   pull_request:
-    ##branches: [ main ]
-    branches: [ master, main, tin6150-dockerizing, 3.8* ]
-
-# rest is paste from github new template  2024.0312
+    branches: [ "master", "main" ]
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -43,8 +35,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@main
-        #uses: actions/checkout@v4.2.0
+        uses: actions/checkout@v3
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
@@ -105,4 +96,3 @@ jobs:
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
         run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
-
