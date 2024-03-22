@@ -70,10 +70,10 @@ RUN  cd / \
   && touch _TOP_DIR_OF_CONTAINER_  \
   && echo  "--------" >> _TOP_DIR_OF_CONTAINER_   \
   && TZ=PST8PDT date  >> _TOP_DIR_OF_CONTAINER_   \
-  && echo  "Dockerfile      2024.0313"   >> _TOP_DIR_OF_CONTAINER_   \
+  && echo  "Dockerfile      2024.0322"   >> _TOP_DIR_OF_CONTAINER_   \
   && echo  "Grand Finale for Dockerfile"
 
-ENV DBG_APP_VER  "Dockerfile 2024.0313"
+ENV DBG_APP_VER  "Dockerfile 2024.0322"
 ENV DBG_DOCKERFILE Dockerfile__base
 
 ENV TZ America/Los_Angeles 
@@ -95,8 +95,10 @@ ENV TEST_DOCKER_ENV_NEQ1 "Dockerfile ENV assignment as foo bar, no  use of =, bo
 #-- unset path to ensure it didn't make Rscript behave worse cuz somehow "test" got masked/lost
 
 
-ENTRYPOINT [ "/bin/bash" ]
-#ENTRYPOINT [ "/bin/python3" ]
+#ENTRYPOINT [ "/bin/bash" ]
+ENTRYPOINT [ "/bin/python3" ]
+# $@ should be passed by docker run as arg when ENTRYPOINT is invoked
+# ref https://stackoverflow.com/questions/32727594/how-to-pass-arguments-to-shell-script-through-docker-run
 
 
 # vim: shiftwidth=4 tabstop=4 formatoptions-=cro nolist nu syntax=on
