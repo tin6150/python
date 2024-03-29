@@ -8,7 +8,8 @@
 
 # branch specific settings:
 
-FROM ubuntu:22.04   
+FROM ubuntu:21.04   
+# FROM ubuntu:22.04   
 # FROM debian:12.5-slim   ## bookworm-slim
 
 # To set ghcr to be public, so docker pull does not get unauthorized, see
