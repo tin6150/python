@@ -30,4 +30,5 @@ singularity pull --name python.sif docker://ghcr.io/tin6150/py-conda:main
 
 this repo was started back in 2019... 
 2024.0413 changed branch name from master to main
+rename used web gui, manually changing URL to "/branches" to get list to rename, set default.
 
