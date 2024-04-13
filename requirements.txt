@@ -1,7 +1,11 @@
 # list extracted from LBL PILATES environment.yml https://github.com/tin6150/PILATES/blob/master/environment.yml
-# _libgcc_mutex
+# used pip to install... 
+#h5py
+#openmatrix
+# rest originally installed via conda
+#x _libgcc_mutex
 # _openmp_mutex
-alsa-lib
+#x alsa-lib
 appdirs
 asn1crypto
 attrs
@@ -192,6 +196,3 @@ xz
 yaml
 zlib
 zstd
-# used pip to install... 
-#h5py
-#openmatrix

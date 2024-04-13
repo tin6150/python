@@ -13,7 +13,8 @@ pip list > pip_list.before_install.txt
 pip install numpy pandas
 echo $?
 echo "==================================="
-pip install -r requirements.txt
+#pip install -r requirements.txt
+cat requirements.txt | grep -v ^# | xargs -n 1 pip install 
 echo $?
 echo "==================================="
 date
