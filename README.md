@@ -18,7 +18,7 @@ plan to be a fairly fat container with many python libraries, numby, pandas, and
 # example run command (in testing)
 
 docker pull          ghcr.io/tin6150/python:main
-docker run -it --rm  ghcr.io/tin6150/python:main
+docker run -it --rm  --entrypoint=/bin/bash ghcr.io/tin6150/python:main
 
 
 

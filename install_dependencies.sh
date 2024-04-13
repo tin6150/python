@@ -2,13 +2,13 @@
 
 ## install python packages and add libraries
 
-apt-get -y install python-pip
+date
+apt-get -y install python3 python3-pip
+echo $?
+echo "==================================="
 
-
-# cd /
 
 date
-
 pip install numpy pandas
 echo $?
 echo "==================================="
@@ -19,3 +19,5 @@ date
 
 pip list > pip_list.after_install.txt
 
+
+# cd /
