@@ -21,6 +21,10 @@ docker pull          ghcr.io/tin6150/python:main
 docker run -it --rm  --entrypoint=/bin/bash ghcr.io/tin6150/python:main
 
 
+cd ~/tin-gh/lbnl-science-it/atlas-run
+docker run -it --rm  -v `pwd`:/mnt ghcr.io/tin6150/python:main  -u /mnt/atlas_run.py -v 2>&1 | tee /mnt/log_atlas_testv12.out &
+
+
 
 singularity pull --name python.sif docker://ghcr.io/tin6150/py-conda:main
 
