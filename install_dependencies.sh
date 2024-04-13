@@ -9,6 +9,7 @@ echo "==================================="
 
 
 date
+pip list > pip_list.before_install.txt
 pip install numpy pandas
 echo $?
 echo "==================================="
