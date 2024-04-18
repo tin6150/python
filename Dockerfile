@@ -71,7 +71,7 @@ RUN  cd / \
   && touch _TOP_DIR_OF_CONTAINER_  \
   && echo  "--------" >> _TOP_DIR_OF_CONTAINER_   \
   && TZ=PST8PDT date  >> _TOP_DIR_OF_CONTAINER_   \
-  && echo  "Dockerfile      2024.0417 openmatrix h5py"   >> _TOP_DIR_OF_CONTAINER_   \
+  && echo  "Dockerfile      2024.0417 openmatrix h5py docker-ce"   >> _TOP_DIR_OF_CONTAINER_   \
   && echo  "Grand Finale for Dockerfile"
 
 ENV DBG_APP_VER  "Dockerfile 2024.0417"
