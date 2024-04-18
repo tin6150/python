@@ -9,7 +9,8 @@
 # branch specific settings:
 
 # FROM ubuntu:21.04   
-FROM ubuntu:22.04   
+FROM ubuntu:20.04   
+# FROM ubuntu:22.04       ## invoking docker ps from inside zink has strange error, test with older version
 # FROM debian:12.5-slim   ## bookworm-slim
 
 # To set ghcr to be public, so docker pull does not get unauthorized, see
@@ -71,10 +72,10 @@ RUN  cd / \
   && touch _TOP_DIR_OF_CONTAINER_  \
   && echo  "--------" >> _TOP_DIR_OF_CONTAINER_   \
   && TZ=PST8PDT date  >> _TOP_DIR_OF_CONTAINER_   \
-  && echo  "Dockerfile      2024.0417 openmatrix h5py docker-ce"   >> _TOP_DIR_OF_CONTAINER_   \
+  && echo  "Dockerfile      2024.0418 ub20.04"   >> _TOP_DIR_OF_CONTAINER_   \
   && echo  "Grand Finale for Dockerfile"
 
-ENV DBG_APP_VER  "Dockerfile 2024.0417"
+ENV DBG_APP_VER  "Dockerfile 2024.0418"
 ENV DBG_DOCKERFILE Dockerfile__base
 
 ENV TZ America/Los_Angeles 
