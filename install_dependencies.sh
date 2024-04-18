@@ -10,7 +10,7 @@ echo "==================================="
 
 date
 pip list > pip_list.before_install.txt
-pip install numpy pandas
+# pip install numpy pandas   # these are in requirements.txt now
 echo $?
 echo "==================================="
 echo "===== requirements.txt ====="
