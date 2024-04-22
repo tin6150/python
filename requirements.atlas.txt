@@ -13,4 +13,6 @@ logging
 sys
 glob
 pathlib
+pickle
+cloudpickle
 
