@@ -22,10 +22,22 @@ docker run -it --rm  --entrypoint=/bin/bash ghcr.io/tin6150/python:main
 docker run -it --rm  --entrypoint=/bin/pip  ghcr.io/tin6150/python:main list
 
 
-pushd ~/tin-gh/lbnl-science-it/atlas-run
-docker run -it --rm --entrypoint=/bin/bash -v `pwd`:/mnt  -v /var/run/docker.sock:/var/run/docker.sock   ghcr.io/tin6150/python:main   
-	cd /mnt
-	python3 -u ./atlas_run.py -v
+#pushd ~/tin-gh/lbnl-science-it/atlas-run
+pushd ~/tin-gh/lbnl-science-it/atlas
+# . settings.env
+#xxatlas_input_dir=/mnt/atlas/atlas_input/
+#xxatlas_output_dir=/mnt/atlas/atlas_output/
+atlas_input_dir=/home/tin/tin-gh/lbnl-science-it/atlas-run/atlas/atlas-input/
+atlas_output_dir=/home/tin/tin-gh/lbnl-science-it/atlas-run/atlas/atlas-output/
+
+# ++ add more binding for input/output dir...   still not working... 
+docker run -it --rm --entrypoint=/bin/bash -v `pwd`:/mnt \
+  -v $atlas_input_dir:/atlas_input    \
+  -v $atlas_output_dir:/atlas_output  \
+  -v /var/run/docker.sock:/var/run/docker.sock   ghcr.io/tin6150/python:ub20.04
+	
+    cd /mnt
+	  python3 -u ./atlas_run.py -v
 
 
 # invoking docker from inside docker, passthru, not exactly dind (docker-in-docker)
