@@ -19,10 +19,19 @@ plan to be a fairly fat container with many python libraries, numby, pandas, and
 
 docker pull          ghcr.io/tin6150/python:main
 docker run -it --rm  --entrypoint=/bin/bash ghcr.io/tin6150/python:main
+docker run -it --rm  --entrypoint=/bin/pip  ghcr.io/tin6150/python:main list
 
 
-cd ~/tin-gh/lbnl-science-it/atlas-run
-docker run -it --rm  -v `pwd`:/mnt ghcr.io/tin6150/python:main  -u /mnt/atlas_run.py -v 2>&1 | tee /mnt/log_atlas_testv12.out &
+pushd ~/tin-gh/lbnl-science-it/atlas-run
+docker run -it --rm --entrypoint=/bin/bash -v `pwd`:/mnt  -v /var/run/docker.sock:/var/run/docker.sock   ghcr.io/tin6150/python:main   
+	cd /mnt
+	python3 -u ./atlas_run.py -v
+
+
+# invoking docker from inside docker, passthru, not exactly dind (docker-in-docker)
+docker run -it --rm  -v `pwd`:/mnt ghcr.io/tin6150/python:main -v /var/run/docker.sock:/var/run/docker.sock  -u /mnt/atlas_run.py -v 2>&1 | tee ./log_atlas_testv12.out 
+# the tee is to local fs, not inside the container
+# above can't find settings.yml.... how to "cd" before starting python?  oh... lots more binding for atlas input/output?
 
 
 

@@ -1,17 +1,17 @@
 # from atlas_run.py import clauses
-warnings
-shutil
-subprocess
+#warnings
+#shutil
+#subprocess
 multiprocessing
 psutil
 yaml
 docker
-spython.main
-os
+# spython.main  # ??
+#os
 argparse
 logging
-sys
-glob
+#sys
+#glob
 pathlib
 pickle
 cloudpickle

@@ -1,7 +1,8 @@
 # list extracted from LBL PILATES environment.yml https://github.com/tin6150/PILATES/blob/master/environment.yml
 # used pip to install... 
-#h5py
-#openmatrix
+h5py
+openmatrix
+# openmatrix is some sort of meta package, pip list won't show it even when all components are installed.
 # rest originally installed via conda
 #x _libgcc_mutex
 # _openmp_mutex
