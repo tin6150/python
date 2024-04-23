@@ -19,7 +19,8 @@ plan to be a fairly fat container with many python libraries, numby, pandas, and
 
 docker pull          ghcr.io/tin6150/python:main
 docker run -it --rm  --entrypoint=/bin/bash ghcr.io/tin6150/python:main
-docker run -it --rm  --entrypoint=/bin/pip  ghcr.io/tin6150/python:main list
+docker run -it --rm  --entrypoint=/bin/pip  ghcr.io/tin6150/python:main    list
+docker run -it --rm  --entrypoint=/bin/pip  ghcr.io/tin6150/python:ub20.04 list
 
 
 #pushd ~/tin-gh/lbnl-science-it/atlas-run

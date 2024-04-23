@@ -28,12 +28,14 @@ echo "==================================="
 echo "==== install docker... ============"
 echo "==================================="
 
-#apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+# apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 # above seems to reuslt in 
 # TypeError: load_config() got an unexpected keyword argument 'config_dict'
 # by atlas_run.py invoking docker from python
-# copilot says to use pip instead
-pip install --upgrade --force-reinstall --no-cache-dir docker-compose
+# copilot says to use pip instead (NOPE, does not add docker)
+#pip install --upgrade --force-reinstall --no-cache-dir docker-compose
+
+apt-get -y install docker.io
 
 echo $?
 
