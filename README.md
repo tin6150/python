@@ -44,7 +44,7 @@ docker run -it --rm --entrypoint=/bin/bash -v `pwd`:/mnt \
 docker run -it --rm  -v `pwd`:/mnt ghcr.io/tin6150/python:main -v /var/run/docker.sock:/var/run/docker.sock  -u /mnt/atlas_run.py -v 2>&1 | tee ./log_atlas_testv12.out 
 # the tee is to local fs, not inside the container
 # above can't find settings.yml.... how to "cd" before starting python?  oh... lots more binding for atlas input/output?
-
+# use WORKDIR (see rstudio)
 
 
 singularity pull --name python.sif docker://ghcr.io/tin6150/py-conda:main

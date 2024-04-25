@@ -56,6 +56,7 @@ RUN echo ''  ;\
     echo ""
 
 COPY .           /opt/gitrepo/container/
+WORKDIR          /mnt                       # expect data to be bind mounted to /mnt
 
 RUN echo ''  ;\
     echo '==================================================================' ;\
@@ -67,16 +68,17 @@ RUN echo ''  ;\
     cd    /   ;\
     echo  ""
 
+ENV DBG_APP_VER  "Dockerfile_2024.0424_ub20.04_WORKDIR_/mnt"
+ENV DBG_DOCKERFILE Dockerfile__base
 
 RUN  cd / \
   && touch _TOP_DIR_OF_CONTAINER_  \
   && echo  "--------" >> _TOP_DIR_OF_CONTAINER_   \
   && TZ=PST8PDT date  >> _TOP_DIR_OF_CONTAINER_   \
-  && echo  "Dockerfile      2024.0418 ub20.04"   >> _TOP_DIR_OF_CONTAINER_   \
+  && echo  "Dockerfile      2024.0424 ub20.04 WORKDIR"   >> _TOP_DIR_OF_CONTAINER_   \
+  && echo  "$DBG_APP_VER"   >> _TOP_DIR_OF_CONTAINER_   \
   && echo  "Grand Finale for Dockerfile"
 
-ENV DBG_APP_VER  "Dockerfile 2024.0418"
-ENV DBG_DOCKERFILE Dockerfile__base
 
 ENV TZ America/Los_Angeles 
 # ENV TZ likely changed/overwritten by container's /etc/csh.cshrc
