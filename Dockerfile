@@ -8,8 +8,8 @@
 
 # branch specific settings:
 
-# FROM ubuntu:21.04   
-FROM ubuntu:20.04   
+FROM ubuntu:21.04   
+# FROM ubuntu:20.04   
 # FROM ubuntu:22.04       ## invoking docker ps from inside zink has strange error, test with older version
 # FROM debian:12.5-slim   ## bookworm-slim
 
@@ -67,7 +67,7 @@ RUN echo ''  ;\
     cd    /   ;\
     echo  ""
 
-ENV DBG_APP_VER  "Dockerfile_2024.0425_ub20.04_WORKDIR_/mnt"
+ENV DBG_APP_VER  "Dockerfile_2024.0425_ub21.04_WORKDIR_/mnt"
 ENV DBG_DOCKERFILE Dockerfile__base
 
 RUN  cd / \
