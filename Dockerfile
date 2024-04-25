@@ -8,8 +8,8 @@
 
 # branch specific settings:
 
-FROM ubuntu:21.04   
-# FROM ubuntu:20.04   
+# FROM ubuntu:21.04   
+FROM ubuntu:20.04   
 # FROM ubuntu:22.04       ## invoking docker ps from inside zink has strange error, test with older version
 # FROM debian:12.5-slim   ## bookworm-slim
 
@@ -56,7 +56,6 @@ RUN echo ''  ;\
     echo ""
 
 COPY .           /opt/gitrepo/container/
-WORKDIR          /mnt                       # expect data to be bind mounted to /mnt
 
 RUN echo ''  ;\
     echo '==================================================================' ;\
@@ -68,14 +67,13 @@ RUN echo ''  ;\
     cd    /   ;\
     echo  ""
 
-ENV DBG_APP_VER  "Dockerfile_2024.0424_ub20.04_WORKDIR_/mnt"
+ENV DBG_APP_VER  "Dockerfile_2024.0425_ub20.04_WORKDIR_/mnt"
 ENV DBG_DOCKERFILE Dockerfile__base
 
 RUN  cd / \
   && touch _TOP_DIR_OF_CONTAINER_  \
   && echo  "--------" >> _TOP_DIR_OF_CONTAINER_   \
   && TZ=PST8PDT date  >> _TOP_DIR_OF_CONTAINER_   \
-  && echo  "Dockerfile      2024.0424 ub20.04 WORKDIR"   >> _TOP_DIR_OF_CONTAINER_   \
   && echo  "$DBG_APP_VER"   >> _TOP_DIR_OF_CONTAINER_   \
   && echo  "Grand Finale for Dockerfile"
 
@@ -98,6 +96,10 @@ ENV TEST_DOCKER_ENV_NEQ1 "Dockerfile ENV assignment as foo bar, no  use of =, bo
 # below PATH doesn't help resolve Rscript /main.R not finding R problem, but it should not hurt.
 #-- ENV PATH=/usr/lib/R/bin/exec:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 #-- unset path to ensure it didn't make Rscript behave worse cuz somehow "test" got masked/lost
+
+
+WORKDIR          /mnt
+# expect data to be bind mounted to /mnt
 
 
 #ENTRYPOINT [ "/bin/bash" ]
