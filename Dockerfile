@@ -96,7 +96,7 @@ ENV TEST_DOCKER_ENV_NEQ1 "Dockerfile ENV assignment as foo bar, no  use of =, bo
 #-- unset path to ensure it didn't make Rscript behave worse cuz somehow "test" got masked/lost
 
 
-WORKDIR=/mnt
+WORKDIR /mnt
 
 #ENTRYPOINT [ "/bin/bash" ]
 ENTRYPOINT [ "/bin/python3" ]
