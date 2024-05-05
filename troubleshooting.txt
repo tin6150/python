@@ -1,3 +1,4 @@
+
 Atlas code call docker pull and start container inside the Python code.
 the container was not able to start, seems to be some conflicts 
 between old and new docker version, see:
@@ -59,4 +60,8 @@ docker-compose
 
 
 # spython.main  #  no pip install for this., commented out "from spython.main import Client" from atlas-run.py, seems to work okay
+
+
+
+* git log 265ae75 -- pip and apt packages listed in this commit works on ubuntu 22.04 laptop for atlas-run.py
 
