@@ -66,16 +66,16 @@ RUN echo ''  ;\
     cd    /   ;\
     echo  ""
 
+ENV DBG_APP_VER  "Dockerfile_2024.0504_WORKDIR_docker-compose_only"
+ENV DBG_DOCKERFILE Dockerfile__base
 
 RUN  cd / \
   && touch _TOP_DIR_OF_CONTAINER_  \
   && echo  "--------" >> _TOP_DIR_OF_CONTAINER_   \
   && TZ=PST8PDT date  >> _TOP_DIR_OF_CONTAINER_   \
-  && echo  "Dockerfile      2024.0417 openmatrix h5py docker-ce"   >> _TOP_DIR_OF_CONTAINER_   \
+  && echo  "$DBG_APP_VER"   >> _TOP_DIR_OF_CONTAINER_   \
   && echo  "Grand Finale for Dockerfile"
 
-ENV DBG_APP_VER  "Dockerfile 2024.0417"
-ENV DBG_DOCKERFILE Dockerfile__base
 
 ENV TZ America/Los_Angeles 
 # ENV TZ likely changed/overwritten by container's /etc/csh.cshrc
@@ -95,6 +95,8 @@ ENV TEST_DOCKER_ENV_NEQ1 "Dockerfile ENV assignment as foo bar, no  use of =, bo
 #-- ENV PATH=/usr/lib/R/bin/exec:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 #-- unset path to ensure it didn't make Rscript behave worse cuz somehow "test" got masked/lost
 
+
+WORKDIR=/mnt
 
 #ENTRYPOINT [ "/bin/bash" ]
 ENTRYPOINT [ "/bin/python3" ]

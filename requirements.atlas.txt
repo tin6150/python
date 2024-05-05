@@ -5,7 +5,9 @@
 multiprocessing
 psutil
 yaml
-docker
+#docker
+# https://groups.google.com/g/awx-project/c/I_JlKTbYiB8 says not to user docer docker-py 
+# and only have docker-compose (from pip, which currently still is via apt)
 # spython.main  # ??
 #os
 argparse

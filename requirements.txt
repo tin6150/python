@@ -35,7 +35,7 @@ curl
 cycler
 dbus
 decorator
-docker-py
+#docker-py
 docker-pycreds
 expat
 fiona
