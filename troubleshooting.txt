@@ -1,0 +1,62 @@
+Atlas code call docker pull and start container inside the Python code.
+the container was not able to start, seems to be some conflicts 
+between old and new docker version, see:
+https://groups.google.com/g/awx-project/c/I_JlKTbYiB8
+
+eg errors:
+ghcr.io/tin6150/python:main ie ub22.04   [TBD repeat on wombat17x which is running edubuntu 22.04]
+	#xx old do not use  apt-get -y install docker-compose
+	# https://docs.docker.com/engine/install/ubuntu/
+	apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+	# ie no pip install docker-compose,  as https://groups.google.com/g/awx-project/c/I_JlKTbYiB8 says not to user docker docker-py
+	# only docker-pycreds in requirements.atlas.txt
+
+
+
+
+Traceback (most recent call last):
+  File "/mnt/./atlas_run.py", line 172, in <module>
+    client = initialize_docker_client(settings)
+  File "/mnt/./atlas_run.py", line 32, in initialize_docker_client
+    client = docker.from_env()
+  File "/usr/local/lib/python3.10/dist-packages/docker/client.py", line 94, in from_env
+    return cls(
+  File "/usr/local/lib/python3.10/dist-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/docker/api/client.py", line 131, in __init__
+    self._auth_configs = auth.load_config(
+TypeError: load_config() got an unexpected keyword argument 'config_dict'
+
+
+or
+
+ghcr.io/tin6150/python:ub20.04 using 
+	apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin #docker-compose-plugin
+	pip install --upgrade --force-reinstall --no-cache-dir docker-compose
+	requirements have docker docker-py docker-pycreds
+
+
+Pulling latest image for ghcr.io/lbnl-science-it/atlas:sfb-v2.0.7
+Traceback (most recent call last):
+  File "./atlas_run.py", line 172, in <module>
+    client = initialize_docker_client(settings)
+  File "./atlas_run.py", line 40, in initialize_docker_client
+    client.images.pull(image)
+AttributeError: 'function' object has no attribute 'pull'
+
+
+
+
+~~~~~
+
+
+#docker
+docker-compose
+# https://groups.google.com/g/awx-project/c/I_JlKTbYiB8 says not to user docer docker-py
+# and only have docker-compose (from pip, which currently still is via apt)
+# wombat17x> xubuntu 22.04 laptop (use snap's docker): Pulling latest image for ghcr.io/lbnl-science-it/atlas:sfb-v2.0.7
+# xubuntu 22.04 laptop (use snap's docker): works. Pulling ghcr.io/lbnl-science-it/atlas:sfb-v2.0.7   might seems to hang, just cuz it is a 3.7G image, be patient
+
+
+# spython.main  #  no pip install for this., commented out "from spython.main import Client" from atlas-run.py, seems to work okay
+

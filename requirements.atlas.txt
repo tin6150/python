@@ -6,9 +6,11 @@ multiprocessing
 psutil
 yaml
 #docker
+docker-compose
 # https://groups.google.com/g/awx-project/c/I_JlKTbYiB8 says not to user docer docker-py 
 # and only have docker-compose (from pip, which currently still is via apt)
-# spython.main  # ??
+# xubuntu 22.04 laptop (use snap's docker): works. Pulling ghcr.io/lbnl-science-it/atlas:sfb-v2.0.7   might seems to hang, just cuz it is a 3.7G image, be patient
+# spython.main  # no pip install needed to satisfy this
 #os
 argparse
 logging
@@ -17,4 +19,3 @@ logging
 pathlib
 #pickle
 cloudpickle
-
