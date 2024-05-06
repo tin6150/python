@@ -31,12 +31,6 @@ docker run -it --rm --entrypoint=python3 -v `pwd`:/mnt  -v /var/run/docker.sock:
     -u ./atlas_run.py -v
 2>&1 | tee ./log_atlas_testv12.out 
 # the tee is to local fs, not inside the container
-# above can't find settings.yml.... how to "cd" before starting python?  oh... lots more binding for atlas input/output?
-
-docker run -it --rm --entrypoint=/bin/bash -v `pwd`:/mnt  -v /var/run/docker.sock:/var/run/docker.sock \
-  ghcr.io/tin6150/python:main   
-	cd /mnt
-	python3 -u ./atlas_run.py -v
 
 
 ~~~~~
