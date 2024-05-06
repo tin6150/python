@@ -50,6 +50,13 @@ AttributeError: 'function' object has no attribute 'pull'
 
 ~~~~~
 
+reference run:
+
+laptop with ubuntu 22.04, python3 and all the requirements.txt installed on the machine.
+call atlas_run.py which pull the altas sfb container
+this tested to work.
+Next is to have python also in a container (trying to use docker passthru, so container calling container, which have path problem for pip modules?)
+
 
 #docker
 docker-compose
@@ -64,4 +71,12 @@ docker-compose
 
 
 * git log 265ae75 -- pip and apt packages listed in this commit works on ubuntu 22.04 laptop for atlas-run.py
+
+2024.0505 1:20pm did on wombat17x
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo snap remove docker
+so using /usr/bin/docker  (26.1.1) (needed reboot to fix path)
+
+python3 -u ./atlas_run.py  -v
+(works after user can run docker ps)
 

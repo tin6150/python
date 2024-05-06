@@ -27,8 +27,10 @@ curl
 cycler
 dbus
 decorator
+docker 
 docker-compose
 docker-pycreds
+dockerpty
 expat
 fiona
 fontconfig
