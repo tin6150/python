@@ -55,6 +55,13 @@ echo $?
 echo "==================================="
 date
 
+# spython is
+# sigunlarity python package. I remembered installing it by "pip3 install spython". Another installation option is here: https://singularityhub.github.io/singularity-cli/install.
+pip install spython 2>&1 | tee    pip_install_spython.TEE_OUT.txt 
+echo $?                  | tee -a pip_install_spython.TEE_OUT.txt
+
+echo "==================================="
+
 pip list > pip_list.after_install.txt
 
 
