@@ -60,6 +60,16 @@ date
 pip install spython 2>&1 | tee    pip_install_spython.TEE_OUT.txt 
 echo $?                  | tee -a pip_install_spython.TEE_OUT.txt
 
+
+echo "==================================="
+echo "===== install chewbbaca ====="
+echo "==================================="
+# ponder if create a dedicated container for this for SMF
+# for now, just need a tool to generate cgMLST... see if this work
+# https://chewbbaca.readthedocs.io/en/latest/user/getting_started/installation.html
+pip3 install chewbbaca
+
+
 echo "==================================="
 
 pip list > pip_list.after_install.txt
